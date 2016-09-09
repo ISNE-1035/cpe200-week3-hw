@@ -18,7 +18,7 @@ public class Student {
     public Student(String name2 , String id2 , int Birth2 , boolean status2) {
         name = name2==""?"John Doe":name2;
         id = isValidStudent_id(id2)?id2:"560610000";
-        Birth = isValidYOB(Birth2)?Birth2:1990;
+        Birth = isValidYearOfBirth(Birth2)?Birth2:1990;
         status = status2;
     }
     public String getName(){
@@ -36,9 +36,11 @@ public class Student {
     public void setName(String name2){
         name = name2!=""?name2:name;
     }
-    public void setStudent_id(String id2){id = isValidStudent_id(id2)?id2:id;}
+    public void setStudent_id(String id2)
+    {
+        id = isValidStudent_id(id2)?id2:id;}
     public void setYearOfBirth(int Birth2){
-        Birth = isValidYOB(Birth2)?Birth2:Birth;
+        Birth = isValidYearOfBirth(Birth2)?Birth2:Birth;
     }
 
     @Override
@@ -52,7 +54,7 @@ public class Student {
         return id.matches("5[6-9]{1}061[0-2]{1}[0-9]{3}") ? true : false;
     }
 
-    private boolean isValidYOB(int Birth){
+    private boolean isValidYearOfBirth(int Birth){
         return Birth > 1989?true:false;
     }
 
